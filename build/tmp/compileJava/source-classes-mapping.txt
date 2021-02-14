@@ -1,0 +1,8 @@
+net/fenrir/blockphysics/BlockPhysics.java
+ net.fenrir.blockphysics.BlockPhysics
+net/fenrir/blockphysics/mixin/BlockMixin.java
+ net.fenrir.blockphysics.mixin.BlockMixin
+net/fenrir/blockphysics/BlockHandler.java
+ net.fenrir.blockphysics.BlockHandler
+net/fenrir/blockphysics/mixin/FireBlockMixin.java
+ net.fenrir.blockphysics.mixin.FireBlockMixin

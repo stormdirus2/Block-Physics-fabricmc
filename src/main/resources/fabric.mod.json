@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "blockphysics",
+  "version": "${version}",
+  "name": "Block Physics",
+  "description": "Basically all blocks are affected by gravity. They can extend out, so think of Enviromine and scaffolding blocks.",
+  "authors": [
+    "Fenrir"
+  ],
+  "contact": {
+
+  },
+  "license": "MIT",
+  "icon": "pack.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.fenrir.blockphysics.BlockPhysics"
+    ]
+  },
+  "mixins": [
+    "blockphysics.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.1",
+    "minecraft": ">=1.16.2"
+  }
+}
