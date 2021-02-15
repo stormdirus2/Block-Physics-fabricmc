@@ -81,9 +81,6 @@ public class BlockHandler {
         if (BlockPhysics.PROTECTED_BLOCKS.contains(block)) {
             resis = Math.max(resis,3.0D);
         }
-        if (state.getSoundGroup() == BlockSoundGroup.GLASS) {
-            resis = Math.max(resis,6.0D);
-        }
         return (int) Math.ceil(resis);
     }
 
@@ -101,17 +98,31 @@ public class BlockHandler {
     }
 
     public static boolean scan(World world, BlockPos pos) {
+        if (
+                (BlockPhysics.STICKY_BLOCKS.contains(world.getBlockState(pos).getBlock()) && upCheck(world,pos)) ||
+                (BlockPhysics.STICKY_BLOCKS.contains(world.getBlockState(pos.up()).getBlock()) && upCheck(world,pos.up()))
+        ) {
+            return true;
+        }
+        int reach = Reach(world,pos);
         for (int a = -1; a <= 1; a++) {
             for (int b = -1; b <= 1; b++) {
                 if (a != 0 || b != 0) {
-                    for (int i = 1; i <= Reach(world, pos); i++) {
+                    int i = 1;
+                    int goal = reach;
+                    while (i <= goal) {
                         if (blockViable(world,pos.north(a * i).east(b * i))) {
                             if (check(world, pos.north(a * i).east(b * i),0)) {
                                 return true;
                             }
+                            int oReach = Reach(world,pos.north(a * i).east(b * i));
+                            if (oReach > goal) {
+                                goal = oReach;
+                            }
                         } else {
                             break;
                         }
+                        i = i + 1;
                     }
                 }
             }
