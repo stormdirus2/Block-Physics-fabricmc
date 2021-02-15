@@ -81,7 +81,7 @@ public class BlockHandler {
         if (BlockPhysics.PROTECTED_BLOCKS.contains(block)) {
             resis = Math.max(resis,3.0D);
         }
-        return (int) Math.ceil(resis);
+        return (int) Math.min(Math.ceil(resis),50);
     }
 
     public static boolean Encased(World world, BlockPos pos) {
