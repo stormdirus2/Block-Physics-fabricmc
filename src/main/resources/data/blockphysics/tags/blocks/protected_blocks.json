@@ -5,7 +5,8 @@
     "#minecraft:wart_blocks",
     "minecraft:brown_mushroom_block",
     "minecraft:red_mushroom_block",
-    "minecraft:mushroom_stem"
+    "minecraft:mushroom_stem",
+    "minecraft:sandstone",
+    "minecraft:red_sandstone"
   ]
 }
-
