@@ -16,6 +16,7 @@ public class BlockPhysics implements ModInitializer {
     public static final Tag<Block> STICKY_BLOCKS = TagRegistry.block(new Identifier(MOD_ID,"sticky_blocks"));
     public static final Tag<Block> PROTECTED_BLOCKS = TagRegistry.block(new Identifier(MOD_ID,"protected_blocks"));
     public static final Tag<Block> FLOATS = TagRegistry.block(new Identifier(MOD_ID,"floats"));
+    public static final Tag<Block> USE_DEFAULT_STATE = TagRegistry.block(new Identifier(MOD_ID,"use_default_state"));
 
     @Override
     public void onInitialize() {
