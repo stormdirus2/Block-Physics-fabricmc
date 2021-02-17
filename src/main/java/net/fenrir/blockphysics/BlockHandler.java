@@ -8,6 +8,10 @@ import net.minecraft.world.World;
 
 public class BlockHandler {
 
+    public static boolean blockFloats(Block origin) {
+        return origin.getSlipperiness() > 0.6f || BlockPhysics.FLOATS.contains(origin);
+    }
+
     public static boolean blockNotFall(World world, BlockPos pos, Block origin) {
         BlockState state = world.getBlockState(pos);
         Material material = state.getMaterial();
@@ -15,7 +19,7 @@ public class BlockHandler {
             return false;
         }
         if (material.isLiquid()) {
-            return origin.getSlipperiness() > 0.6f || BlockPhysics.FLOATS.contains(origin);
+            return blockFloats(origin);
         }
         return true;
     }
@@ -131,6 +135,10 @@ public class BlockHandler {
     }
     public static void fall(World world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
+        Block block = state.getBlock();
+        if (BlockPhysics.USE_DEFAULT_STATE.contains(block)) {
+            state = block.getDefaultState();
+        }
         FallingBlockEntity fallingBlockEntity = new FallingBlockEntity(world, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, state);
         fallingBlockEntity.timeFalling = 1;
         fallingBlockEntity.setHurtEntities(true);
