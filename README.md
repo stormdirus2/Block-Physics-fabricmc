@@ -1,4 +1,12 @@
-## A block physics system not unlike Enviromine's or the functionality of scaffolding blocks.
+# FOR 1.18.2 AND BEYOND, Block Physics IS SUPERSEDED BY DISRUPTION:
+## Modrinth (Awaiting aproval): https://modrinth.com/mod/disruption
+## Github: https://github.com/stormdirus2/disruption
+
+<br>
+<br>
+<br>
+
+### A block physics system not unlike Enviromine's or the functionality of scaffolding blocks.
 
 Blocks have a max reach distance based on their blast resistance. They can only reach out so far from a 'support' (a column of block(s) that are connected to a highly-surrounded block or a high blast resistance block) 
 
